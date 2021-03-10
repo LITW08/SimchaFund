@@ -325,7 +325,7 @@ namespace SimchaFund.Data
         {
             using var connection = new SqlConnection(_connectionString);
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT SUM(Amount) FROM Deposits";
+            cmd.CommandText = "SELECT ISNULL(SUM(Amount), 0) FROM Deposits";
             connection.Open();
             return (decimal) cmd.ExecuteScalar();
         }
@@ -334,7 +334,7 @@ namespace SimchaFund.Data
         {
             using var connection = new SqlConnection(_connectionString);
             using var cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT SUM(Amount) FROM Contributions";
+            cmd.CommandText = "SELECT ISNULL(SUM(Amount), 0) FROM Contributions";
             connection.Open();
             return (decimal)cmd.ExecuteScalar();
         }
