@@ -24,29 +24,30 @@
             @{ int i = 0;}
             @foreach (SimchaContributor contributor in Model.Contributors)
             {
-<input type="hidden" name="contributors[@i].ContributorId" value="@contributor.ContributorId" />
+                <input type="hidden" name="contributors[@i].ContributorId" value="@contributor.ContributorId" />
                 <tr>
                     <td>
                         @if (contributor.Amount != null)
                         {
-        <input class="contribute" type="checkbox" name="contributors[@i].Include" checked="checked" value="true" /> }
-    else
-    {
-<input class="contribute" type="checkbox" name="contributors[@i].Include" value="true" />}
+                            <input class="contribute" type="checkbox" name="contributors[@i].Include" checked value="true" />
+                        }
+                        else
+                        {
+                            <input class="contribute" type="checkbox" name="contributors[@i].Include" value="true" />
+                        }
                     </td>
                     <td>@contributor.LastName @contributor.FirstName</td>
                     <td>@contributor.Balance.ToString("C")</td>
                     <td style="text-align: center;">
                         @if (contributor.AlwaysInclude)
                         {
-        <span style="font-size: 25px;" class="oi oi-check"></span>}
+                            <span style="font-size: 25px;" class="oi oi-check"></span>}
                     </td>
                     <td>
                         <input type="text" name="contributors[@i].amount" class="form-control" value="@(contributor.Amount ?? 5)" />
                     </td>
                     @{ i++; }
-                </tr>
-}
+                </tr>}
         </table>
         <div style="text-align:center;">
             <button class="btn-lg btn-danger">Update</button>

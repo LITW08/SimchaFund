@@ -7,7 +7,7 @@
         const contribId = $(this).data('contribid');
         $('[name="contributorId"]').val(contribId);
 
-        const tr = $(this).parent().parent();
+        const tr = $(this).closest('tr');
         const name = tr.find('td:eq(1)').text();
         $("#deposit-name").text(name);
 

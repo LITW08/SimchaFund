@@ -14,6 +14,7 @@ namespace SimchaFund.Web.Controllers
     {
         private string _connectionString =
             @"Data Source=.\sqlexpress;Initial Catalog=SimchaFund;Integrated Security=true;";
+        
         public IActionResult Index()
         {
             if (TempData["Message"] != null)

@@ -55,7 +55,7 @@ namespace SimchaFund.Web.Controllers
         {
             var mgr = new SimchaFundManager(_connectionString);
             List<Deposit> deposits = mgr.GetDepositsById(contribId);
-            var contributions = mgr.GetContributionsById(contribId);
+            List<Contribution> contributions = mgr.GetContributionsById(contribId);
             
             var transactions = deposits.Select(d => new Transaction
             {
